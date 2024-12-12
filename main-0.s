@@ -188,34 +188,17 @@ _start:
     print  invalid, invalid_len
     jmp    .ask_mode
 
-;.host_mode:
-    ; create socket: socket(AF_INET, SOCK_STREAM, 0)
-    ;socket 2, 1, 0, [sock_fd]
-    ; bind(sockfd, sockaddr_in , size of sockaddr_in)
-    ;bind [sock_fd], sock_address_in, 16 ; err here
-    ;listen [sock_fd], 5
-
-    ; Accept connection
-    ; Client sockaddr (can be NULL)
-    ; Length (not used here)
-    ;accept [sock_fd],0 , 0, [client_fd]
-    ; Enter chat loop
-    ;jmp .fork_chat
-
 .host_mode:
     ; create socket: socket(AF_INET, SOCK_STREAM, 0)
     socket 2, 1, 0, [sock_fd]
-    
     ; bind(sockfd, sockaddr_in , size of sockaddr_in)
-    lea rsi, [sock_address_in]  ; load address of sock_address_in
-    bind [sock_fd], rsi, 16     ; pass the address correctly
-
+    bind [sock_fd], sock_address_in, 16 ; err here
     listen [sock_fd], 5
 
     ; Accept connection
     ; Client sockaddr (can be NULL)
     ; Length (not used here)
-    accept [sock_fd], 0, 0, [client_fd]
+    accept [sock_fd],0 , 0, [client_fd]
     ; Enter chat loop
     jmp .fork_chat
 
