@@ -42,13 +42,13 @@ pkg install yasm mold blink
 
 ### 3. Assemble and Run Examples
 
-Navigate to the example folder, assemble, and run the code by following these steps:
-
+Navigate to the repo folder, get help. by following these steps:
 ```
 cd LetsGetX64
+make help
 ```
 
-How to Learn ASM with LetsGetX64
+## How to Learn ASM with LetsGetX64
 
 The LetsGetX64 project contains a collection of practical examples to help you learn Assembly. Here's how you can get the most out of the project:
 
@@ -75,58 +75,58 @@ The Art of Assembly Language
 
 
 
-Project Roadmap
+## Project Roadmap
 
 The LetsGetX64 project will continue to evolve with new features and learning materials. Here's what we plan to work on:
 
-Phase 1: Basic Examples
+### Phase 1: Basic Examples
 
-[x] Simple arithmetic operations
+- [x] 1.1. Simple arithmetic operations
 
-[x] Printing text to the console
+- [x] 1.2. Printing text to the console
 
-[x] System calls (exit, print, etc.)
-
-
-Phase 2: Intermediate Examples
-
-[ ] Working with variables and memory
-
-[ ] Creating functions in Assembly
-
-[ ] Handling user input
+- [x] 1.3. System calls (exit, print, etc.)
 
 
-Phase 3: Advanced Topics
+### Phase 2: Intermediate Examples
 
-[ ] Writing Assembly programs that interact with files
+- [ ] Working with variables and memory
 
-[ ] Advanced system calls
+- [ ] Creating functions in Assembly
 
-[ ] Optimizing assembly code for performance
-
-[ ] Creating a small shell in Assembly
+- [ ] Handling user input
 
 
-Phase 4: Educational Resources
+### Phase 3: Advanced Topics
 
-[ ] Creating video tutorials
+- [ ] Writing Assembly programs that interact with files
 
-[ ] Writing blog posts and guides for beginners
+- [ ] Advanced system calls
 
-[ ] Community-driven challenges and projects
+- [ ] Optimizing assembly code for performance
 
-
-Ongoing Maintenance
-
-[ ] Bug fixes
-
-[ ] Optimizing example code
-
-[ ] Keeping up with modern x64 architecture changes
+- [ ] Creating a small shell in Assembly
 
 
-Contributing
+### Phase 4: Educational Resources
+
+- [ ] Creating video tutorials
+
+- [ ] Writing blog posts and guides for beginners
+
+- [ ] Community-driven challenges and projects
+
+
+### Ongoing Maintenance
+
+- [ ] Bug fixes
+
+- [ ] Optimizing example code
+
+- [ ] Keeping up with modern x64 architecture changes
+
+
+## Contributing
 
 Contributions to LetsGetX64 are welcome! If you'd like to help improve the project, please follow these steps:
 
@@ -148,7 +148,7 @@ Contributions to LetsGetX64 are welcome! If you'd like to help improve the proje
 
 Please ensure that any changes you make follow the project's coding standards and that they add value to the learning experience.
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
