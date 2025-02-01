@@ -33,11 +33,9 @@ sudo pacman -S yasm mold
 sudo pacman -S yasm mold blink
 
 # for termux:
-pkg install yasm mold
-# for arm
 pkg install yasm mold blink
 
-# for windows and mac I cant help you, but you shouldd install mold and yasm(and blinko n arm)
+# for windows and mac I cant help you, but you should install mold and yasm(and blink for arm)
 ```
 
 ### 3. Assemble and Run Examples
@@ -79,7 +77,7 @@ The Art of Assembly Language
 
 The LetsGetX64 project will continue to evolve with new features and learning materials. Here's what we plan to work on:
 
-### Phase 1: Basic Examples
+### Phase 1. Basic Examples
 
 - [x] 1.1. Simple arithmetic operations
 
@@ -88,27 +86,27 @@ The LetsGetX64 project will continue to evolve with new features and learning ma
 - [x] 1.3. System calls (exit, print, etc.)
 
 
-### Phase 2: Intermediate Examples
+### Phase 2. Intermediate Examples
 
-- [ ] Working with variables and memory
+- [ ] 2.1. Working with variables and memory
 
-- [ ] Creating functions in Assembly
+- [ ] 2.2. Creating functions in Assembly
 
-- [ ] Handling user input
-
-
-### Phase 3: Advanced Topics
-
-- [ ] Writing Assembly programs that interact with files
-
-- [ ] Advanced system calls
-
-- [ ] Optimizing assembly code for performance
-
-- [ ] Creating a small shell in Assembly
+- [ ] 2.3. Handling user input
 
 
-### Phase 4: Educational Resources
+### Phase 3. Advanced Topics
+
+- [ ] 3.1. Writing Assembly programs that interact with files
+
+- [ ] 3.2. Advanced system calls
+
+- [ ] 3.3. Optimizing assembly code for performance
+
+- [ ] 3.4. Creating a small shell in Assembly
+
+
+### Phase 4. Educational Resources
 
 - [ ] Creating video tutorials
 
@@ -156,7 +154,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 Happy coding, and enjoy learning Assembly with LetsGetX64!
-
-Feel free to customize the README as needed, and make sure to replace the placeholder URLs with actual links for your repository and resources. This README should give users a clear overview of how to get started with your project and the roadmap of its development.
-
 

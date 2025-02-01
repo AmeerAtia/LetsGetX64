@@ -27,31 +27,34 @@
 
 
 # Define the path to the main assembly file
-path = main.s
-ex = 0.hello_world.s
+f = main.s
+o = app
 # Command to install YASM and Mold if not already installed
 help:
-	@echo "Requaried: installing the next packages:"
+	@echo "Requaried:"
 	@echo "      yasm"
 	@echo "      mold"
 	@echo ""
-	@echo "Arm Requaried: installing the next one:"
+	@echo "Arm Requaried:"
 	@echo "      blink"
 	@echo ""
-	@echo "Examples: see examples list by running:"
+	@echo "Examples List:"
 	@echo "      make list"
 	@echo ""
-	@echo "Test Example: run any example by running:"
-	@echo "      make test ex=<example_name>"
+	@echo "Run File:"
+	@echo "      make run f=<file_path>"
+	@echo "   note: the path is ./main.s by default!"
 	@echo ""
-	@echo "Run File: run any by running:"
-	@echo "      make run path=<file_path>"
-	@echo "   The path is ./main.s by default."
+	@echo "Build File:"
+	@echo "      make build f=<file_path> o=<outpu_ name>"
+	@echo "   note: path is ./main.s by default!"
+	@echo "   note: output in: ./release!"
 	@echo ""
-	@echo "Build File: build any file by running:"
-	@echo "      make build path=<file_path>"
-	@echo "   The path is ./main.s by default."
-	@echo "   Output will be in: ./release"
+	@echo "Run Example:"
+	@echo "      make run_ex f=<example_name>"
+	@echo ""
+	@echo "Clean Debug and Release:"
+	@echo "      make clean"
 
 
 
@@ -61,15 +64,15 @@ list:
 		echo $$(basename $$file .$(suffix $$file)); \
 	done
 
-test:
-	@make -s run path=./apps/$(ex)
+run_ex:
+	@make -s run f=./apps/$(f)
 
 
 # Check the architecture and run the program
 run:
 	-@rm -rf debug
 	-@mkdir debug
-	-@yasm -f elf64 -g dwarf2 $(path) -o debug/a.o
+	-@yasm -f elf64 -g dwarf2 $(f) -o debug/a.o
 	-@mold debug/a.o -o debug/a
 	-@if [ "$(shell uname -m)" = "x86_64" ]; then \
 		./debug/a; \
@@ -83,7 +86,7 @@ run:
 build:
 	-@rm -rf release
 	-@mkdir release
-	-@yasm -f elf64 $(path) -o release/a.o
+	-@yasm -f elf64 $(f) -o release/a.o
 	-@mold release/a.o -o release/app
 	-@rm release/a.o
 	-@echo "./release/app"
