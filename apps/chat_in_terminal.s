@@ -1,7 +1,7 @@
 section .data
-    prompt          db  'Choose host (h) or client (c): ',0
-    host_msg        db  'Running as host...',0xa,0
-    client_msg      db  'Running as client...',0xa,0
+    prompt          db  'Choose host (h) or client (c): '
+    host_msg        db  'Running as host...'
+    client_msg      db  'Running as client...'
     port            equ 12345
     sockaddr_host   dw  2                   ; AF_INET
                     dw  0x3930              ; Port 12345 (network byte order)
@@ -27,12 +27,12 @@ _start:
     mov rax, 1
     mov rdi, 1
     mov rsi, prompt
-    mov rdx, 27
+    mov rdx, 31
     syscall
 
     ; Get user choice
-    mov rax, 0
-    mov rdi, 0
+    xor rax, rax
+    xor rdi, rdi
     mov rsi, input
     mov rdx, 1
     syscall
@@ -55,7 +55,7 @@ host:
     mov rax, 41
     mov rdi, 2
     mov rsi, 1
-    mov rdx, 0
+    xor rdx, rdx
     syscall
     mov [sockfd], eax
 
@@ -84,8 +84,8 @@ host:
     ; Accept connection
     mov rax, 43
     mov rdi, [sockfd]
-    mov rsi, 0
-    mov rdx, 0
+    xor rsi, rsi
+    xor rdx, rdx
     syscall
     mov [commfd], eax
 
@@ -96,14 +96,14 @@ client:
     mov rax, 1
     mov rdi, 1
     mov rsi, client_msg
-    mov rdx, 19
+    mov rdx, 20
     syscall
 
     ; Create socket
     mov rax, 41
     mov rdi, 2
     mov rsi, 1
-    mov rdx, 0
+    xor rdx, rdx
     syscall
     mov [sockfd], eax
 
@@ -126,8 +126,8 @@ chat:
 
 sender:
     ; Send loop
-    mov rax, 0
-    mov rdi, 0
+    xor rax, rax
+    xor rdi, rdi
     mov rsi, buffer
     mov rdx, 256
     syscall
@@ -146,7 +146,7 @@ sender:
 
 receiver:
     ; Receive loop
-    mov rax, 0
+    xor rax, rax
     mov rdi, [commfd]
     mov rsi, buffer
     mov rdx, 256
